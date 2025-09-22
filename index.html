@@ -5,108 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>deBridge: The Interoperability Standard for Web3</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-        
-        :root {
-            --primary-color: #5d5dff;
-            --secondary-color: #8a2be2;
-            --bg-color: #121212;
-            --card-bg: #1e1e1e;
-            --text-color: #e0e0e0;
-            --link-color: #5d5dff;
-            --border-color: #333;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css');
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --primary-color: #793EF5;
+            --secondary-color: #64C5B9;
+            --bg-dark: #1A1A2E;
+            --bg-light: #24243e;
+            --text-color: #E0E0E0;
+            --card-color: #292945;
+            --accent-glow: #793EF5;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-dark);
             color: var(--text-color);
             line-height: 1.6;
-            background: linear-gradient(135deg, var(--bg-color) 0%, #1a1a2e 100%);
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-
+        
+        .header-bg {
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+            padding: 100px 20px 80px;
+            text-align: center;
+        }
+        
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: 80px 20px;
-        }
-
-        header h1 {
+        
+        h1 {
             font-size: 3.5rem;
             font-weight: 700;
-            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
         }
-
-        header p {
+        
+        .tagline {
             font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto;
             color: #b0b0b0;
         }
 
-        /* Sections */
         section {
-            padding: 60px 20px;
+            padding: 50px 20px;
             margin-bottom: 40px;
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            background-color: var(--card-color);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
         }
         
-        section h2 {
-            font-size: 2.5rem;
+        h2 {
+            font-size: 2.2rem;
             text-align: center;
             margin-bottom: 40px;
             font-weight: 600;
-            color: var(--text-color);
+            color: var(--primary-color);
         }
-
-        section h3 {
+        
+        h3 {
             font-size: 1.8rem;
             margin-top: 30px;
             margin-bottom: 15px;
-            color: var(--primary-color);
-        }
-
-        p {
-            margin-bottom: 15px;
-            color: #c0c0c0;
-        }
-
-        ul {
-            list-style-type: disc;
-            padding-left: 20px;
-            margin-bottom: 20px;
-            color: #c0c0c0;
+            color: var(--secondary-color);
         }
         
-        li {
-            margin-bottom: 10px;
+        p, ul {
+            font-size: 1rem;
+            color: #c0c0c0;
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        ul li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
         }
 
-        /* FAQ Section */
+        ul li::before {
+            content: "\f058"; 
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #fff;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(121, 62, 245, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(121, 62, 245, 0.6);
+        }
+
+        /* FAQ */
         .faq-item {
-            background-color: #2a2a2a;
-            border-radius: 8px;
+            background-color: var(--bg-light);
+            border-radius: 10px;
             margin-bottom: 15px;
-            border: 1px solid #444;
+            border: 1px solid rgba(255, 255, 255, 0.1);
             overflow: hidden;
         }
         
@@ -118,44 +159,43 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #2a2a2a;
+            transition: background-color 0.3s;
         }
-
+        
+        .faq-question:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+        
         .faq-question::after {
             content: '+';
             font-size: 1.5rem;
-            color: var(--link-color);
+            color: var(--primary-color);
             transition: transform 0.3s;
         }
-
+        
         .faq-question.active::after {
             content: '–';
             transform: rotate(180deg);
         }
-
+        
         .faq-answer {
             max-height: 0;
             overflow: hidden;
             padding: 0 20px;
             transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
-            background-color: #242424;
+            background-color: var(--bg-dark);
         }
         
         .faq-answer p {
             padding-top: 10px;
             padding-bottom: 20px;
-            color: #c0c0c0;
         }
         
         /* Footer */
         footer {
             text-align: center;
             padding: 40px 20px;
-            border-top: 1px solid var(--border-color);
-            margin-top: 60px;
-            background-color: var(--card-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+            margin-top: auto;
         }
         
         .social-links a {
@@ -171,16 +211,18 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+    <div class="header-bg">
+        <div class="container">
             <h1>deBridge: The Interoperability Standard for Web3</h1>
-            <p>A secure and seamless infrastructure for cross-chain asset and data transfers, empowering the next generation of decentralized applications. This page provides a comprehensive overview of our protocol's architecture, security model, and core functionalities.</p>
-        </header>
+            <p class="tagline">A secure and seamless infrastructure for cross-chain asset and data transfers, empowering the next generation of decentralized applications.</p>
+        </div>
+    </div>
 
+    <div class="container">
         <section id="protocol-overview">
             <h2>The deBridge Protocol: A Technical Deep Dive</h2>
             <p>At its core, deBridge is a decentralized protocol and infrastructure platform designed to facilitate secure and reliable value transfer across various blockchains. Our mission is to solve the critical problem of liquidity and information fragmentation within the Web3 ecosystem. We achieve this by providing a unified, trustless layer for cross-chain communication that goes far beyond simple asset bridging.</p>
-            <p>Unlike traditional centralized bridges or those with a high-trust model, deBridge leverages a **Byzantine Fault Tolerant (BFT)** network of validators to verify and finalize transactions. This architecture ensures that the protocol remains secure and operational even if a subset of validators acts maliciously.</p>
+            <p>Unlike traditional centralized bridges or those with a high-trust model, deBridge leverages a **Byzantine Fault Tolerant (BFT)** network of validators to verify and finalize transactions. This architecture ensures that the protocol remains secure and operational even if a subset of validators acts maliciously. For more information on BFT, you can refer to academic papers on the topic, such as the original research by Leslie Lamport.</p>
 
             <h3>Core Architectural Components</h3>
             <ul>
@@ -200,14 +242,14 @@
                 <li><strong>Zokio:</strong> Focused on potential attack vectors and economic exploits within the system.</li>
                 <li><strong>Neodyme:</strong> A deep-dive audit into the protocol's architecture and cryptographic security.</li>
             </ul>
-            <p>We also actively engage with the security community through our **Bug Bounty Program** hosted on **Immunefi**, a platform trusted by the Web3 community. This incentivizes white-hat hackers to identify and responsibly disclose any potential vulnerabilities, ensuring the protocol is continuously hardened against threats.</p>
+            <p>We also actively engage with the security community through our **Bug Bounty Program** hosted on **Immunefi**, a platform trusted by the Web3 community. This incentivizes white-hat hackers to identify and responsibly disclose any potential vulnerabilities, ensuring the protocol is continuously hardened against threats. <a href="https://immunefi.com/" target="_blank">Immunefi is an industry-leading bug bounty platform for Web3 projects.</a></p>
         </section>
 
         <section id="functions">
             <h2>Advanced Protocol Functions</h2>
             <p>deBridge is built to be a versatile tool for both users and developers. Its capabilities extend far beyond simple token swaps.</p>
             <h3>Generic Message Passing</h3>
-            <p>This is a core feature of deBridge. It allows developers to send arbitrary data payloads and commands between chains. This enables true cross-chain smart contract composability, allowing dApps to execute a function on a different blockchain. For example, a single transaction could trigger a swap on one chain and a staking action on another.</p>
+            <p>This is a core feature of deBridge. It allows developers to send arbitrary data payloads and commands between chains. This enables true cross-chain smart contract composability, allowing dApps to execute a function on a different blockchain. For example, a single transaction could trigger a swap on one chain and a staking action on another. <a href="https://docs.debridge.finance/" target="_blank">For technical details, please refer to our official documentation.</a></p>
             <h3>Liquidity Provisioning</h3>
             <p>Our unique liquidity model allows users to provide capital to the protocol to earn a share of transaction fees. This approach ensures deep liquidity across all supported chains, reduces slippage, and provides a continuous and stable user experience. Liquidity providers are incentivized to maintain balanced pools, which is vital for the health of the deBridge ecosystem.</p>
         </section>
@@ -241,13 +283,14 @@
                 </div>
             </div>
         </section>
-        
+
         <footer>
-            <p>Made with 💜 for a decentralized future.</p>
             <div class="social-links">
-                <a href="https://twitter.com/deBridgeFinance" target="_blank" aria-label="Twitter">Twitter</a> | 
-                <a href="https://docs.debridge.finance/" target="_blank" aria-label="Documentation">Docs</a>
+                <a href="https://twitter.com/deBridgeFinance" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://docs.debridge.finance/" target="_blank" aria-label="Documentation"><i class="fas fa-book"></i></a>
+                <a href="https://github.com/debridge-finance" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
+            <p>Made with 💜 for a decentralized future.</p>
         </footer>
     </div>
     
@@ -257,14 +300,12 @@
                 const answer = question.nextElementSibling;
                 const isExpanded = question.classList.contains('active');
 
-                // Collapse all other answers
                 document.querySelectorAll('.faq-question').forEach(q => {
                     q.classList.remove('active');
                     q.nextElementSibling.style.maxHeight = '0';
                     q.nextElementSibling.style.padding = '0 20px';
                 });
 
-                // Expand the clicked answer if it wasn't already expanded
                 if (!isExpanded) {
                     question.classList.add('active');
                     answer.style.maxHeight = answer.scrollHeight + 'px';
