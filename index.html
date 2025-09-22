@@ -5,120 +5,267 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>deBridge: The Interoperability Standard for Web3</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f6f8fa;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --primary-color: #5d5dff;
+            --secondary-color: #8a2be2;
+            --bg-color: #121212;
+            --card-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --link-color: #5d5dff;
+            --border-color: #333;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            background: linear-gradient(135deg, var(--bg-color) 0%, #1a1a2e 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 20px;
         }
-        .container {
-            max-width: 900px;
-            margin: auto;
-            background: #fff;
-            padding: 30px 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e1e4e8;
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 80px 20px;
         }
-        h1 {
-            color: #0366d6;
-            border-bottom: 2px solid #e1e4e8;
-            padding-bottom: 10px;
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             margin-bottom: 20px;
-            font-size: 2.5em;
         }
-        h2 {
-            color: #24292e;
-            font-size: 1.8em;
-            margin-top: 30px;
-            border-bottom: 1px solid #e1e4e8;
-            padding-bottom: 5px;
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: #b0b0b0;
         }
-        h3 {
-            color: #24292e;
-            font-size: 1.4em;
-            margin-top: 20px;
+
+        /* Sections */
+        section {
+            padding: 60px 20px;
+            margin-bottom: 40px;
         }
-        p, ul {
-            font-size: 1em;
-            color: #586069;
+        
+        section h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 600;
+            color: var(--text-color);
         }
-        ul {
-            padding-left: 20px;
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
         }
-        li {
+
+        .card {
+            background-color: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
             margin-bottom: 10px;
+            color: var(--link-color);
         }
-        a {
-            color: #0366d6;
-            text-decoration: none;
+
+        /* FAQ Section */
+        .faq-item {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: background-color 0.3s;
         }
-        a:hover {
-            text-decoration: underline;
+        
+        .faq-item:hover {
+            background-color: #2a2a2a;
         }
-        .section-separator {
-            border: 0;
-            height: 1px;
-            background: #e1e4e8;
-            margin: 30px 0;
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--link-color);
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active::after {
+            content: '–';
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 20px;
+            transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+        }
+        
+        .faq-answer p {
+            padding-bottom: 20px;
+            color: #c0c0c0;
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+        
+        .social-links a {
+            color: var(--text-color);
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>deBridge: The Interoperability Standard for Web3</h1>
+        <header>
+            <h1>deBridge: The Interoperability Standard for Web3</h1>
+            <p>A secure and seamless infrastructure for cross-chain asset and data transfers, empowering the next generation of decentralized applications.</p>
+        </header>
 
-        <h2>About the deBridge Protocol</h2>
-        <p><strong>deBridge</strong> is a decentralized protocol and infrastructure platform that enables the seamless and secure transfer of assets and data between various blockchains. Our mission is to solve the critical problem of liquidity and information fragmentation in the Web3 ecosystem, providing a unified and secure layer for cross-chain communication. This repository serves as a hub for our core protocol development, security audits, and technical documentation. We believe in complete transparency and an open-source approach to building the future of decentralized finance.</p>
+        <section id="why-debridge">
+            <h2>Why deBridge?</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>Absolute Security</h3>
+                    <p>Our decentralized validator network and unique security model minimize attack vectors. With regular audits from top-tier security firms like Halborn and Immunefi, your assets are always protected.</p>
+                </div>
+                <div class="card">
+                    <h3>Unmatched Efficiency</h3>
+                    <p>Benefit from near-instant finality and a dynamic fee model that ensures low-cost and highly efficient cross-chain transactions, regardless of network congestion.</p>
+                </div>
+                <div class="card">
+                    <h3>True Composability</h3>
+                    <p>Go beyond simple asset bridging. deBridge enables generic message passing, allowing developers to build complex, multi-chain dApps that interact with smart contracts on different networks.</p>
+                </div>
+            </div>
+        </section>
 
-        <h3>Core Principles and Vision</h3>
-        <p>The core vision behind deBridge is to eliminate the 'walled gardens' of individual blockchains. By creating a robust and secure interoperability layer, we enable assets and value to flow freely across different chains, unlocking unprecedented possibilities for decentralized applications. Our architecture is built on the principles of **Byzantine Fault Tolerance (BFT)**, ensuring that the network remains secure even if some validators are malicious.</p>
+        <section id="how-it-works">
+            <h2>How It Works</h2>
+            <div class="card-grid">
+                <div class="card">
+                    <h3>The Protocol in Action</h3>
+                    <p>When you initiate a transaction, the deBridge protocol instantly sends a request to its decentralized validator network. These validators independently verify the transaction and provide cryptographic proofs, which are then used by the destination chain to finalize the transfer.</p>
+                </div>
+                <div class="card">
+                    <h3>Unlocking Liquidity</h3>
+                    <p>deBridge operates using a liquidity-pool model, where liquidity providers can deposit assets to earn a share of transaction fees. This ensures a consistent supply of liquidity and enables a smooth user experience without long waiting times.</p>
+                </div>
+                <div class="card">
+                    <h3>Trustless Verification</h3>
+                    <p>Every step of the process is fully transparent and trustless. The protocol relies on a consensus mechanism among validators, meaning no single entity has control over the funds or can halt the network.</p>
+                </div>
+            </div>
+        </section>
 
-        <h2>Commitment to Security and Audits</h2>
-        <p>The security of our users' assets is our highest priority. We maintain a continuous and rigorous security posture, including regular third-party audits and a public bug bounty program.</p>
-        <ul>
-            <li><strong>Security Audits:</strong> Our smart contracts and infrastructure have undergone extensive audits by leading firms in the blockchain security space, including <strong>Halborn</strong>, <strong>Zokio</strong>, and <strong>Neodyme</strong>. A comprehensive list of audit reports is available in our dedicated security repository: <a href="https://github.com/debridge-finance/debridge-security">debridge-finance/debridge-security</a>.</li>
-            <li><strong>Bug Bounty Program:</strong> We operate an ongoing bug bounty program with <strong>Immunefi</strong>, a platform trusted by the Web3 community, to incentivize security researchers to identify and report vulnerabilities. You can find our program details here: <a href="https://immunefi.com/bug-bounty/debridge/">Immunefi Bug Bounty Program</a>.</li>
-        </ul>
-
-        <hr class="section-separator">
-
-        <h2>Protocol Features and Functions</h2>
-        <p>deBridge is more than just an asset bridge. It's a comprehensive platform for cross-chain communication. Here’s a closer look at its capabilities:</p>
-        <ul>
-            <li><strong>Generic Message Passing:</strong> Developers can use deBridge to send arbitrary data payloads and commands between chains, allowing for true cross-chain smart contract calls and dApp composability.</li>
-            <li><strong>Cross-Chain DeFi Composability:</strong> Build applications that execute functions on a different blockchain. For example, a user can swap tokens on one chain and immediately stake the received tokens on another, all in a single atomic transaction.</li>
-            <li><strong>Dynamic Fee Model:</strong> The protocol uses a dynamic fee model that adjusts based on network congestion and the current demand for cross-chain liquidity. This ensures efficient pricing and a smooth user experience.</li>
-            <li><strong>Liquidity Provisioning:</strong> Users can act as liquidity providers, supplying capital to the deBridge protocol to earn fees from cross-chain transactions. This model ensures deep liquidity across all supported chains.</li>
-        </ul>
-
-        <hr class="section-separator">
-
-        <h2>Frequently Asked Questions (T2)</h2>
-        <p>Here are answers to some of the most common questions about deBridge.</p>
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">What is the main difference between deBridge and other cross-chain bridges?</div>
+                    <div class="faq-answer">
+                        <p>Unlike many other bridges that rely on a 'lock-and-mint' model, deBridge uses a different approach for asset transfers. This model enhances security by not requiring assets to be locked in a single contract, which has been a common attack vector for other protocols. Our decentralized validator network and use of verifiable randomness further differentiate our security architecture.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">What blockchains does deBridge support?</div>
+                    <div class="faq-answer">
+                        <p>deBridge is designed to be a multi-chain protocol. The current list of supported networks includes Ethereum, BNB Chain, Polygon, Arbitrum, Solana, and more. Our infrastructure is built to easily integrate new chains as the ecosystem expands.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is it possible to transfer data or messages in addition to assets?</div>
+                    <div class="faq-answer">
+                        <p>Yes. deBridge is a generic messaging and interoperability protocol. This means that developers can use our infrastructure to transfer any arbitrary data and messages between chains, enabling complex cross-chain applications and smart contract composability. This functionality goes beyond simple token bridging.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <h3>Q1: What blockchains does deBridge support?</h3>
-        <p><strong>A1:</strong> deBridge is designed to be a multi-chain protocol. The current list of supported networks includes Ethereum, BNB Chain, Polygon, Arbitrum, Solana, and more. Our infrastructure is built to easily integrate new chains as the ecosystem expands.</p>
-
-        <h3>Q2: What is the main difference between deBridge and other cross-chain bridges?</h3>
-        <p><strong>A2:</strong> Unlike many other bridges that rely on a 'lock-and-mint' model, deBridge uses a different approach for asset transfers. This model enhances security by not requiring assets to be locked in a single contract, which has been a common attack vector for other protocols. Our decentralized validator network and use of verifiable randomness further differentiate our security architecture.</p>
-
-        <h3>Q3: How does the deBridge validator network work?</h3>
-        <p><strong>A3:</strong> Our validators, who are elected by the protocol's governance, run a dedicated deBridge node. When a cross-chain transaction is initiated, these validators independently track and sign the transaction. The destination smart contract then requires a minimum number of valid signatures from the network to execute the transaction, ensuring that it is secure and validated by a decentralized consensus.</p>
-
-        <h3>Q4: How does deBridge ensure randomness and fairness for certain functions?</h3>
-        <p><strong>A4:</strong> For applications requiring verifiable randomness, such as leader elections or lottery systems, deBridge can integrate with decentralized services like <strong>Chainlink VRF</strong>. This provides a cryptographically secure and auditable source of randomness that cannot be tampered with by any single entity.</p>
-
-        <hr class="section-separator">
-
-        <h2>Official Resources & Community</h2>
-        <ul>
-            <li><strong>DeBridge Explorer:</strong> Track all cross-chain transactions in real-time.</li>
-            <li><strong>Technical Documentation:</strong> <a href="https://docs.debridge.finance/">Read our official documentation</a> to learn more about the protocol, architecture, and developer guides.</li>
-            <li><strong>Twitter:</strong> <a href="https://twitter.com/deBridgeFinance">Follow us on Twitter</a> for real-time updates and announcements.</li>
-        </ul>
+        <footer>
+            <p>Made with 💜 for a decentralized future.</p>
+            <div class="social-links">
+                <a href="https://twitter.com/deBridgeFinance" target="_blank" aria-label="Twitter">Twitter</a> | 
+                <a href="https://docs.debridge.finance/" target="_blank" aria-label="Documentation">Docs</a>
+            </div>
+        </footer>
     </div>
+    
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isExpanded = question.classList.contains('active');
+
+                // Collapse all other answers
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                    q.nextElementSibling.style.maxHeight = '0';
+                    q.nextElementSibling.style.padding = '0 20px';
+                });
+
+                // Expand the clicked answer if it wasn't already expanded
+                if (!isExpanded) {
+                    question.classList.add('active');
+                    answer.style.maxHeight = answer.scrollHeight + 'px';
+                    answer.style.padding = '20px';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
