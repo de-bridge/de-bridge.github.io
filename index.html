@@ -1,51 +1,130 @@
-# 🌉 deBridge: The Interoperability Standard for Web3
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>deBridge: The Interoperability Standard for Web3</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f6f8fa;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e1e4e8;
+        }
+        h1 {
+            color: #0366d6;
+            border-bottom: 2px solid #e1e4e8;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #24292e;
+            font-size: 1.8em;
+            margin-top: 30px;
+            border-bottom: 1px solid #e1e4e8;
+            padding-bottom: 5px;
+        }
+        h3 {
+            color: #24292e;
+            font-size: 1.4em;
+            margin-top: 20px;
+        }
+        p, ul {
+            font-size: 1em;
+            color: #586069;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .section-separator {
+            border: 0;
+            height: 1px;
+            background: #e1e4e8;
+            margin: 30px 0;
+        }
+        .note {
+            background: #fff5b8;
+            padding: 15px;
+            border-left: 5px solid #ffce3a;
+            border-radius: 4px;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🌉 deBridge: The Interoperability Standard for Web3</h1>
 
-## About the deBridge Protocol
+        <h2>About the deBridge Protocol</h2>
+        <p><strong>deBridge</strong> is a decentralized protocol and infrastructure platform that enables the seamless and secure transfer of assets and data between various blockchains. Our mission is to solve the critical problem of liquidity and information fragmentation in the Web3 ecosystem, providing a unified and secure layer for cross-chain communication.</p>
+        <p>This repository serves as a hub for our core protocol development, security audits, and technical documentation. We believe in complete transparency and an open-source approach to building the future of decentralized finance.</p>
 
-**deBridge** is a decentralized protocol and infrastructure platform that enables the seamless and secure transfer of assets and data between various blockchains. Our mission is to solve the critical problem of liquidity and information fragmentation in the Web3 ecosystem, providing a unified and secure layer for cross-chain communication.
+        <h3>Key Technical Features</h3>
+        <ul>
+            <li><strong>Decentralized Validator Network:</strong> Cross-chain transactions are validated by an independent network of validators, elected by deBridge governance. This architecture removes single points of failure and enhances protocol security.</li>
+            <li><strong>Security-First Approach:</strong> The protocol is designed with a strong emphasis on security. Assets are not locked in a single pool, and the protocol relies on a decentralized verification mechanism to prevent common bridge exploits.</li>
+            <li><strong>Arbitrary Data and Asset Transfer:</strong> deBridge is not limited to simple asset transfers. Our infrastructure allows for the secure movement of any arbitrary data, enabling cross-chain composability for smart contracts and dApps.</li>
+            <li><strong>Instant Finality:</strong> We prioritize near-instant settlement times for cross-chain transfers, providing a smooth user experience.</li>
+        </ul>
 
-This repository serves as a hub for our core protocol development, security audits, and technical documentation. We believe in complete transparency and an open-source approach to building the future of decentralized finance.
+        <hr class="section-separator">
 
-### Key Technical Features
+        <h2>Commitment to Security and Audits</h2>
+        <p>The security of our users' assets is our highest priority. We maintain a continuous and rigorous security posture, including regular third-party audits and a public bug bounty program.</p>
+        <ul>
+            <li><strong>Security Audits:</strong> Our smart contracts and infrastructure have undergone extensive audits by leading firms in the blockchain security space, including <strong>Halborn</strong>, <strong>Zokio</strong>, and <strong>Neodyme</strong>. A comprehensive list of audit reports is available in our dedicated security repository: <a href="https://github.com/debridge-finance/debridge-security">debridge-finance/debridge-security</a>.</li>
+            <li><strong>Bug Bounty Program:</strong> We operate an ongoing bug bounty program with <strong>Immunefi</strong>, a platform trusted by the Web3 community, to incentivize security researchers to identify and report vulnerabilities. You can find our program details here: <a href="https://immunefi.com/bug-bounty/debridge/">Immunefi Bug Bounty Program</a>.</li>
+        </ul>
 
-* **Decentralized Validator Network:** Cross-chain transactions are validated by an independent network of validators, elected by deBridge governance. This architecture removes single points of failure and enhances protocol security.
-* **Security-First Approach:** The protocol is designed with a strong emphasis on security. Assets are not locked in a single pool, and the protocol relies on a decentralized verification mechanism to prevent common bridge exploits.
-* **Arbitrary Data and Asset Transfer:** deBridge is not limited to simple asset transfers. Our infrastructure allows for the secure movement of any arbitrary data, enabling cross-chain composability for smart contracts and dApps.
-* **Instant Finality:** We prioritize near-instant settlement times for cross-chain transfers, providing a smooth user experience.
+        <hr class="section-separator">
 
----
+        <h2>Frequently Asked Questions (T2)</h2>
+        <p>Here are answers to some of the most common questions about deBridge.</p>
+        
+        <h3>Q1: What is the main difference between deBridge and other cross-chain bridges?</h3>
+        <p><strong>A1:</strong> Unlike many other bridges that rely on a 'lock-and-mint' model, deBridge uses a different approach for asset transfers. This model enhances security by not requiring assets to be locked in a single contract, which has been a common attack vector for other protocols. Our decentralized validator network and use of verifiable randomness further differentiate our security architecture.</p>
 
-## Commitment to Security and Audits
+        <h3>Q2: How does the deBridge validator network work?</h3>
+        <p><strong>A2:</strong> Our validators, who are elected by the protocol's governance, run a dedicated deBridge node. When a cross-chain transaction is initiated, these validators independently track and sign the transaction. The destination smart contract then requires a minimum number of valid signatures from the network to execute the transaction, ensuring that it is secure and validated by a decentralized consensus.</p>
 
-The security of our users' assets is our highest priority. We maintain a continuous and rigorous security posture, including regular third-party audits and a public bug bounty program.
+        <h3>Q3: Is it possible to transfer data or messages in addition to assets?</h3>
+        <p><strong>A3:</strong> Yes. deBridge is a generic messaging and interoperability protocol. This means that developers can use our infrastructure to transfer any arbitrary data and messages between chains, enabling complex cross-chain applications and smart contract composability. This functionality goes beyond simple token bridging.</p>
 
-* **Security Audits:** Our smart contracts and infrastructure have undergone extensive audits by leading firms in the blockchain security space, including **Halborn**, **Zokio**, and **Neodyme**. A comprehensive list of audit reports is available in our dedicated security repository: [debridge-finance/debridge-security](https://github.com/debridge-finance/debridge-security).
-* **Bug Bounty Program:** We operate an ongoing bug bounty program with **Immunefi**, a platform trusted by the Web3 community, to incentivize security researchers to identify and report vulnerabilities. You can find our program details here: [Immunefi Bug Bounty Program](https://immunefi.com/bug-bounty/debridge/).
+        <h3>Q4: How does deBridge ensure randomness and fairness for certain functions?</h3>
+        <p><strong>A4:</strong> For applications requiring verifiable randomness, such as leader elections or lottery systems, deBridge can integrate with decentralized services like <strong>Chainlink VRF</strong>. This provides a cryptographically secure and auditable source of randomness that cannot be tampered with by any single entity.</p>
 
----
+        <hr class="section-separator">
 
-## Frequently Asked Questions (T2)
+        <h2>Official Resources & Community</h2>
+        <ul>
+            <li><strong>DeBridge Explorer:</strong> Track all cross-chain transactions in real-time.</li>
+            <li><strong>Technical Documentation:</strong> <a href="https://docs.debridge.finance/">Read our official documentation</a> to learn more about the protocol, architecture, and developer guides.</li>
+            <li><strong>Twitter:</strong> <a href="https://twitter.com/deBridgeFinance">Follow us on Twitter</a> for real-time updates and announcements.</li>
+        </ul>
 
-Here are answers to some of the most common questions about deBridge.
-
-**Q1: What is the main difference between deBridge and other cross-chain bridges?**
-**A1:** Unlike many other bridges that rely on a 'lock-and-mint' model, deBridge uses a different approach for asset transfers. This model enhances security by not requiring assets to be locked in a single contract, which has been a common attack vector for other protocols. Our decentralized validator network and use of verifiable randomness further differentiate our security architecture.
-
-**Q2: How does the deBridge validator network work?**
-**A2:** Our validators, who are elected by the protocol's governance, run a dedicated deBridge node. When a cross-chain transaction is initiated, these validators independently track and sign the transaction. The destination smart contract then requires a minimum number of valid signatures from the network to execute the transaction, ensuring that it is secure and validated by a decentralized consensus.
-
-**Q3: Is it possible to transfer data or messages in addition to assets?**
-**A3:** Yes. deBridge is a generic messaging and interoperability protocol. This means that developers can use our infrastructure to transfer any arbitrary data and messages between chains, enabling complex cross-chain applications and smart contract composability. This functionality goes beyond simple token bridging.
-
-**Q4: How does deBridge ensure randomness and fairness for certain functions?**
-**A4:** For applications requiring verifiable randomness, such as leader elections or lottery systems, deBridge can integrate with decentralized services like **Chainlink VRF**. This provides a cryptographically secure and auditable source of randomness that cannot be tampered with by any single entity.
-
----
-
-## Official Resources & Community
-
-* **DeBridge Explorer:** Track all cross-chain transactions in real-time.
-* **Technical Documentation:** [Read our official documentation](https://docs.debridge.finance/) to learn more about the protocol, architecture, and developer guides.
-* **Twitter:** [Follow us on Twitter](https://twitter.com/deBridgeFinance) for real-time updates and announcements.
-
-**Note:** This is a public repository for technical contributions. For support-related inquiries, please refer to our official community channels.
+        <p class="note"><strong>Note:</strong> This is a public repository for technical contributions. For support-related inquiries, please refer to our official community channels.</p>
+    </div>
+</body>
+</html>
